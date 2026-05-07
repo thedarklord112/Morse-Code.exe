@@ -1,0 +1,29 @@
+/* Program: Morse Code */
+/* Defining the pins for the Buzzer, button, and LED */
+int buzzer = 2;
+int button = 3;
+int led = 4;
+
+void setup()
+{
+   /* Set LED and Buzzer pins as output */
+   pinMode(buzzer, OUTPUT);
+   pinMode(led, OUTPUT);
+   /* Set the button pin as input and enable the internal 
+   pull-up resistor */
+  pinMode(button, INPUT_PULLUP);
+}
+
+void loop()
+{ /* Check if the button is pressed, then turn on the LED and 
+emit the sound */
+    if (digitalRead(button) == LOW) {
+      digitalWrite(led, HIGH);
+      tone(buzzer, 800);
+   }
+   /* Otherwise, turn off the LED and stop the sound */
+   else {
+     digitalWrite(led, LOW);
+     noTone(buzzer);
+   }
+}
